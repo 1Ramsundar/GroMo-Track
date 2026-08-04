@@ -34,7 +34,7 @@ export default function SpendingChart() {
   return (
     <Card padding="md">
       <SectionTitle title="Spending Overview" subtitle="Daily expenses for this month" />
-      <div className="h-72 mt-4">
+      <div className="h-56 md:h-72 mt-4">
         {chartData.length > 0 ? (
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>

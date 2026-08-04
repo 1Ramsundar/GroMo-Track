@@ -1,6 +1,8 @@
 import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { useExpenses } from './ExpenseContext';
+import { useAuth } from "./AuthContext";
 import { getBudget } from "../services/budgetService";
+
 
 const BudgetContext = createContext();
 
@@ -14,6 +16,8 @@ export const useBudget = () => {
 
 export const BudgetProvider = ({ children }) => {
   const { expenses } = useExpenses();
+  const { user } = useAuth();
+
   const [monthlyBudget, setMonthlyBudget] = useState(0);
   const [categoryBudgets, setCategoryBudgetsState] = useState({
     Food: 0,
@@ -26,6 +30,22 @@ export const BudgetProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    if (!user) {
+      setMonthlyBudget(0);
+
+    setCategoryBudgetsState({
+      Food: 0,
+      Travel: 0,
+      Shopping: 0,
+      Bills: 0,
+      Medical: 0,
+      Education: 0,
+      Others: 0
+    });
+
+    return;
+  }
+
   const loadBudget = async () => {
     try {
       const response = await getBudget();
@@ -44,7 +64,7 @@ export const BudgetProvider = ({ children }) => {
   };
 
   loadBudget();
-}, []);
+}, [user]);
 
   const updateMonthlyBudget = useCallback((amount) => {
     setMonthlyBudget(Number(amount));

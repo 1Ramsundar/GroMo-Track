@@ -23,26 +23,26 @@ const StatCard = ({
   const isNeutral = trend === 0;
 
   return (
-    <Card hover padding="md" className="flex flex-col h-full">
-      <div className="flex items-center justify-between mb-4">
-        <h3 className="text-sm font-medium text-slate-500">
+    <Card hover padding="md" className="flex flex-col min-h-[120px] md:min-h-0 h-full">   
+      <div className="flex items-center justify-between mb-5">
+        <h3 className="ttext-xs md:text-sm font-semibold text-slate-500">
           {title}
         </h3>
 
-        <div className={`p-2 rounded-xl ${colorMap[color] || colorMap.teal}`}>
+        <div className={`p-3 rounded-2xl ${colorMap[color] || colorMap.teal}`}>
           {icon &&
             (isValidElement(icon)
               ? React.cloneElement(icon, {
                   className: 'w-5 h-5'
                 })
               : React.createElement(icon, {
-                  className: 'w-5 h-5'
+                  className: 'w-6 h-6'
                 }))}
         </div>
       </div>
 
       <div className="mt-auto">
-        <div className="text-2xl font-bold text-slate-900 font-heading mb-2">
+        <div className="text-3xl md:text-2xl font-bold text-slate-900 font-heading mb-2">
           {value}
         </div>
 

@@ -3,8 +3,8 @@ import React from 'react';
 const Card = ({ padding = 'md', hover = false, className = '', children, ...rest }) => {
   const paddings = {
     sm: 'p-4',
-    md: 'p-6',
-    lg: 'p-8',
+    md: 'p-4 md:p-6',
+    lg: 'p-6 md:p-8',
     none: 'p-0'
   };
 

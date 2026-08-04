@@ -31,7 +31,7 @@ export default function BudgetCard() {
       />
       
       {monthlyBudget > 0 ? (
-        <div className="mt-6 space-y-6">
+        <div className="mt-4 md:mt-6 space-y-4 md:space-y-6">
           <div>
             <div className="flex justify-between text-sm mb-2">
               <span className="font-medium text-slate-700">Total Budget</span>
@@ -46,7 +46,7 @@ export default function BudgetCard() {
             />
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <h4 className="text-sm font-semibold text-slate-900">By Category</h4>
             {Object.entries(categoryBudgets).length > 0 ? (
               Object.entries(categoryBudgets).map(([category, budget]) => {

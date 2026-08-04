@@ -42,7 +42,7 @@ export default function DashboardStats() {
   const expensesCount = currentMonthExpenses.length;
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
       <StatCard
         icon={<TrendingUp className="text-rose-600 w-5 h-5" />}
         title="Today's Spending"

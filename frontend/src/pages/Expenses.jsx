@@ -1,4 +1,5 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { useLocation, useNavigate } from "react-router-dom";
 import DashboardLayout from '../components/layout/DashboardLayout';
 import ExpenseTable from '../components/expenses/ExpenseTable';
 import ExpenseCard from '../components/expenses/ExpenseCard';
@@ -16,6 +17,8 @@ import toast from 'react-hot-toast';
 
 const Expenses = () => {
   const { expenses, deleteExpense, loading } = useExpenses();
+  const location = useLocation();
+  const navigate = useNavigate();
   
   const [searchTerm, setSearchTerm] = useState('');
   const [filters, setFilters] = useState({
@@ -31,6 +34,19 @@ const Expenses = () => {
   
   const [modalState, setModalState] = useState({ isOpen: false, expense: null });
   const [deleteModal, setDeleteModal] = useState({ isOpen: false, expense: null });
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+
+    if (params.get("add") === "true") {
+      setModalState({
+        isOpen: true,
+        expense: null,
+      });
+
+      navigate("/expenses", { replace: true });
+    }
+  }, [location.search, navigate]);
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({ ...prev, [key]: value }));

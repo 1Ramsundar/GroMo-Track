@@ -23,18 +23,19 @@ export default function Dashboard() {
   return (
     <DashboardLayout>
       {/* Greeting */}
-      <div className="mb-10">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-slate-900 font-[family-name:var(--font-heading)]">
+      <div className="mb-6 md:mb-10">
+        <h1 className="text-2xl md:text-4xl font-bold tracking-tight text-slate-900">
           {greeting}, {user?.fullName?.split(' ')[0] || 'User'} 👋
         </h1>
-        <p className="mt-2 text-base text-slate-500">Track your spending, monitor your budget, and stay in control of your finances.</p>
+        <p className="mt-1 text-sm md:text-base text-slate-500 leading-6">Track your spending, monitor your budget, and stay in control of your finances.</p>
       </div>
       
       {/* KPI Cards */}
       <DashboardStats />
       
       {/* Charts Row */}
-      <div className="grid lg:grid-cols-3 gap-8 mt-10">
+{/* Charts Row */}
+      <div className="grid lg:grid-cols-3 gap-6 mt-6 md:mt-10">
         <div className="lg:col-span-2">
           <SpendingChart />
         </div>
@@ -42,12 +43,12 @@ export default function Dashboard() {
       </div>
       
       {/* Quick Actions */}
-      <div className="mt-8">
+      <div className="mt-6">
         <QuickActions />
       </div>
       
       {/* Bottom Row */}
-      <div className="grid lg:grid-cols-3 gap-8 mt-10">
+      <div className="grid lg:grid-cols-3 gap-6 mt-6 md:mt-10">
         <div className="lg:col-span-2">
           <RecentTransactions />
         </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 
-const SectionTitle = ({ title, subtitle, action, actionLabel }) => {
+const SectionTitle = ({title,subtitle,action,actionLabel,onAction,}) => {
   return (
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
       <div>
@@ -9,7 +9,7 @@ const SectionTitle = ({ title, subtitle, action, actionLabel }) => {
         {subtitle && <p className="text-sm text-slate-500 mt-1">{subtitle}</p>}
       </div>
       {action && actionLabel && (
-        <Button variant="primary" onClick={action}>
+        <Button variant="primary" onClick={onAction}>
           {actionLabel}
         </Button>
       )}

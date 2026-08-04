@@ -82,56 +82,70 @@ export function ProfileForm() {
 }
 };
 
-  return (
-    <Card title="Personal Information" padding="lg">
-      <form onSubmit={handleSave} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Input 
-            label="Full Name" 
-            name="name" 
-            value={formData.name} 
-            onChange={handleChange} 
+return (
+  <Card title="Personal Information" padding="lg">
+    <form
+      onSubmit={handleSave}
+      className="space-y-6 pb-36 md:pb-0"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Input
+          label="Full Name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+
+        <Input
+          label="Email Address"
+          name="email"
+          value={user?.email || ""}
+          disabled
+          readOnly
+        />
+      </div>
+
+      <div className="border-t border-slate-200 pt-6">
+        <h3 className="text-lg font-semibold text-slate-800 mb-4">
+          Change Password
+        </h3>
+
+        <div className="space-y-4 max-w-md">
+          <Input
+            type="password"
+            label="Current Password"
+            name="currentPassword"
+            value={formData.currentPassword}
+            onChange={handleChange}
           />
-          <Input 
-            label="Email Address" 
-            name="email" 
-            value={user?.email || ''} 
-            disabled 
-            readOnly 
+
+          <Input
+            type="password"
+            label="New Password"
+            name="newPassword"
+            value={formData.newPassword}
+            onChange={handleChange}
+          />
+
+          <Input
+            type="password"
+            label="Confirm New Password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
           />
         </div>
-        
-        <div className="border-t border-slate-200 pt-6">
-          <h3 className="text-lg font-semibold text-slate-800 mb-4">Change Password</h3>
-          <div className="space-y-4 max-w-md">
-            <Input 
-              type="password" 
-              label="Current Password" 
-              name="currentPassword" 
-              value={formData.currentPassword} 
-              onChange={handleChange} 
-            />
-            <Input 
-              type="password" 
-              label="New Password" 
-              name="newPassword" 
-              value={formData.newPassword} 
-              onChange={handleChange} 
-            />
-            <Input 
-              type="password" 
-              label="Confirm New Password" 
-              name="confirmPassword" 
-              value={formData.confirmPassword} 
-              onChange={handleChange} 
-            />
-          </div>
-        </div>
-        
-        <div className="flex justify-end">
-          <Button type="submit" variant="primary">Save Changes</Button>
-        </div>
-      </form>
-    </Card>
-  );
+      </div>
+
+      <div className="flex justify-end">
+        <Button type="submit" variant="primary">
+          Save Changes
+        </Button>
+      </div>
+
+      {/* Extra space for mobile bottom navigation */}
+      <div className="h-36 md:hidden" />
+    </form>
+  </Card>
+);
 }
