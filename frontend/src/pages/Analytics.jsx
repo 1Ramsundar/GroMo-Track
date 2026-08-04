@@ -77,6 +77,7 @@ return (
         <PaymentMethodChart />
       </div>
 
+        <div className="h-36 md:hidden" />
     </div>
   </DashboardLayout>
 );

@@ -34,7 +34,6 @@ export default function Dashboard() {
       <DashboardStats />
       
       {/* Charts Row */}
-{/* Charts Row */}
       <div className="grid lg:grid-cols-3 gap-6 mt-6 md:mt-10">
         <div className="lg:col-span-2">
           <SpendingChart />
@@ -54,6 +53,7 @@ export default function Dashboard() {
         </div>
         <div className="space-y-6">
            <FinancialHealth /> 
+           <div className="h-30 md:hidden" />
            {/*<UpcomingBills />*/}
         </div>
       </div>

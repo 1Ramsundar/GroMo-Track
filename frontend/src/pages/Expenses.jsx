@@ -253,6 +253,7 @@ const Expenses = () => {
           </div>
         </div>
       </Modal>
+      <div className="h-36 md:hidden" />
     </DashboardLayout>
   );
 };

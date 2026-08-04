@@ -70,6 +70,7 @@ export default function Reports() {
     />
   </>
 )}
+        <div className="h-36 md:hidden" />
       </div>
     </DashboardLayout>
   );

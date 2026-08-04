@@ -110,6 +110,7 @@ export default function Budget() {
             onCancel={() => setIsModalOpen(false)} 
           />
         </Modal>
+        <div className="h-36 md:hidden" />
       </div>
     </DashboardLayout>
   );
